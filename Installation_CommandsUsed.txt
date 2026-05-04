@@ -30,6 +30,8 @@ sudo xfs_growfs /home
 sudo xfs_growfs /var
 df -hT
 
+CREATING A NODE
+===============
 In Jenkins Master URL -> your project -> settings -> Nodes -> roboshop
 Number of executors:3
 Remote root directory: /home/ec2-user/jenkins-agent (It automatically creates in NODE)
@@ -41,3 +43,16 @@ Credentials:
     ID:ssh-auth
 Host Key Verification Strategy:Non verifying Verification Strategy
 Availability: Keep this agent online as mush as possible
+
+CREATING WEB-HOOK
+=================
+https://github.com/mramsudheer/jenkins.git
+Settings -> webhooks -> Create 
+Payload URL: <master publicip>:8080/github-webhook/
+Content type: application/json
+SSL verification: Disable
+Which events would you like to trigger this webhook?
+    Just the push event.
+NOW in Jenkins URL
+Hello-pipeline(Your Project) -> Configure -> General -> Triggers -> GitHub hook trigger for GITScm polling
+

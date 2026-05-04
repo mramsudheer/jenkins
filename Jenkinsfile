@@ -34,7 +34,7 @@ pipeline{
             steps{
                 script{
                     sh """
-                        echo "Testing"
+                    //    echo "Testing"
                         echo "Hello ${params.PERSON}"
                         echo "Biography: ${params.BIOGRAPHY}"
                         echo "Toggle: ${params.TOGGLE}"
