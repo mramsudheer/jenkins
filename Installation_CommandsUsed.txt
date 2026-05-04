@@ -1,5 +1,8 @@
 https://github.com/mramsudheer/jenkins.git
 
+JENKINS MASTER
+==============
+
 sudo curl -o /etc/yum.repos.d/jenkins.repo     https://pkg.jenkins.io/rpm-stable/jenkins.repo
 sudo dnf install fontconfig java-21-openjdk -y
 sudo dnf install Jenkins -y
@@ -11,3 +14,30 @@ sudo systemctl restart jenkins
 
 PASSWORD:
 cat /var/lib/jenkins/secrets/initialAdminPassword
+
+JENKINS AGENT
+=============
+Create with 50GB and install java
+sudo dnf install fontconfig java-21-openjdk -y
+
+sudo lsblk
+sudo growpart /dev/nvme0n1 4
+sudo lvextend -L +10G /dev/mapper/RootVG-homeVol
+sudo lvextend -L +10G /dev/mapper/RootVG-rootVol
+sudo lvextend -L +10G /dev/mapper/RootVG-varVol
+sudo xfs_growfs /
+sudo xfs_growfs /home
+sudo xfs_growfs /var
+df -hT
+
+In Jenkins Master URL -> your project -> settings -> Nodes -> roboshop
+Number of executors:3
+Remote root directory: /home/ec2-user/jenkins-agent (Create in MASTER)
+Labels: ROBOSHOP
+Usage: Only build Jobs with label expressions matching this Node
+Launch method: Launch agents via SSH
+Host: <Agent Private IP>
+Credentials:
+    ID:ssh-auth
+Host Key Verification Strategy:Non verifying Verification Strategy
+Availability: Keep this agent online as mush as possible
