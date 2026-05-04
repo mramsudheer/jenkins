@@ -3,9 +3,9 @@ pipeline{
         node{
             label 'ROBOSHOP'
         }
-        environment{
-            COURSE = "Jenkins"
-        }
+    }
+    environment{
+        COURSE = "Jenkins"
     }
     stages{
         stage('Build'){
