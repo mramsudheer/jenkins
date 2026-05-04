@@ -33,4 +33,9 @@ pipeline{
             }
         }
     }
+    post{
+        always{
+            echo "I Will executes always post all Stages"
+        }
+    }
 }

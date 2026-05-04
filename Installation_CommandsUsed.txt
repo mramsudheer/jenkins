@@ -32,7 +32,7 @@ df -hT
 
 In Jenkins Master URL -> your project -> settings -> Nodes -> roboshop
 Number of executors:3
-Remote root directory: /home/ec2-user/jenkins-agent (Create in MASTER)
+Remote root directory: /home/ec2-user/jenkins-agent (It automatically creates in NODE)
 Labels: ROBOSHOP
 Usage: Only build Jobs with label expressions matching this Node
 Launch method: Launch agents via SSH
