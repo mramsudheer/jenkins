@@ -5,8 +5,8 @@ JENKINS MASTER
 
 sudo curl -o /etc/yum.repos.d/jenkins.repo     https://pkg.jenkins.io/rpm-stable/jenkins.repo
 sudo dnf install fontconfig java-21-openjdk -y
-sudo dnf install Jenkins -y
-sudo systemctl daemon-reload -y
+sudo dnf install jenkins -y
+sudo systemctl daemon-reload
 sudo systemctl enable jenkins
 sudo systemctl restart jenkins
 
@@ -48,7 +48,7 @@ CREATING WEB-HOOK
 =================
 https://github.com/mramsudheer/jenkins.git
 Settings -> webhooks -> Create 
-Payload URL: <master publicip>:8080/github-webhook/
+Payload URL: http://<master publicip>:8080/github-webhook/
 Content type: application/json
 SSL verification: Disable
 Which events would you like to trigger this webhook?
