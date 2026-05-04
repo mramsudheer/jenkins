@@ -1,0 +1,11 @@
+sudo curl -o /etc/yum.repos.d/jenkins.repo     https://pkg.jenkins.io/rpm-stable/jenkins.repo
+sudo dnf install fontconfig java-21-openjdk -y
+sudo dnf install Jenkins -y
+sudo systemctl daemon-reload -y
+sudo systemctl enable jenkins
+sudo systemctl restart jenkins
+
+<publicip>:8080
+
+PASSWORD:
+cat /var/lib/jenkins/secrets/initialAdminPassword
