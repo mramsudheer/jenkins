@@ -38,21 +38,26 @@ pipeline{
                         echo "Hello ${params.PERSON}"
                         echo "Biography: ${params.BIOGRAPHY}"
                         echo "Toggle: ${params.TOGGLE}"
-                        echo "Choice: ${params.DEPLOY}" 
+                        echo "Deploy: ${params.DEPLOY}" 
                         echo "Password: ${params.PASSWORD}"
                     """
                 }
             }
         }
         stage('Deploy'){
-            input{
+            when{
+                expression {
+                    "${params.DEPLOY}" == "true"
+                }
+            }
+            /*input{
                 message "Should we continue?"
                 ok "Yes, we should"
                 submitter "alice,bob"
                 parameters{
                     string(name: 'PERSON', defaultValue: 'Rama', description: 'Who should I say Hello to?')
                 }
-            }
+            } */
             steps{
                 script{
                     sh """
