@@ -49,7 +49,7 @@ pipeline{
                 message "Should we continue?"
                 ok "Yes, we should"
                 submitter "alice,bob"
-                parapeters{
+                parameters{
                     string(name: 'PERSON', defaultValue: 'Rama', description: 'Who should I say Hello to?')
                 }
             }
