@@ -45,7 +45,15 @@ pipeline{
             }
         }
         stage('Deploy'){
-            input{
+            def userInput = input(
+                message: "Should we Continue?",
+                parameters[
+                    choice(name:'DEPLOY_NOW', choices: ['true','false'], description: 'Deploy this build?')
+                ]
+            )
+            if(userInput == 'true'){
+                     
+            /*input{
                 message "Please provide Deployment details"
                 parameters{
                     booleanParam(name: 'DEPLOY', defaultValue: false)
@@ -55,7 +63,7 @@ pipeline{
                 expression {
                     params.DEPLOY == true
                 }
-            }
+            } */
             /*input{
                 message "Should we continue?"
                 ok "Yes, we should"
@@ -64,11 +72,12 @@ pipeline{
                     string(name: 'PERSON', defaultValue: 'Rama', description: 'Who should I say Hello to?')
                 }
             } */
-            steps{
-                script{
-                    sh """
-                        echo "Deploying"
-                    """
+                steps{
+                    script{
+                        sh """
+                            echo "Deploying"
+                        """
+                    }
                 }
             }
         }
