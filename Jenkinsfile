@@ -45,6 +45,12 @@ pipeline{
             }
         }
         stage('Deploy'){
+            input{
+                message "Please provide Deployment details"
+                parameters{
+                    booleanParam(name: 'DEPLOY', defaultValue: false)
+                }
+            }
             when{
                 expression {
                     "${params.DEPLOY}" == "true"
