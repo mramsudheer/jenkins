@@ -47,7 +47,7 @@ pipeline{
         stage('Deploy'){
             def userInput = input(
                 message: "Should we Continue?",
-                parameters[
+                parameters:[
                     choice(name:'DEPLOY_NOW', choices: ['true','false'], description: 'Deploy this build?')
                 ]
             )
