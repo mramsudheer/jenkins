@@ -65,24 +65,25 @@ pipeline{
                 }
             } */
             steps{
-                def userInput = input(
-                    message: "Should we Continue?",
-                    parameters:[
-                        choice(name:'DEPLOY_NOW', choices: ['true','false'], description: 'Deploy this build?')
-                    ]
-                )
-                if(userInput == 'true'){
-                    script{
+                script{
+                    def userInput = input(
+                        message: "Should we Continue?",
+                        parameters:[
+                            choice(name:'DEPLOY_NOW', choices: ['true','false'], description: 'Deploy this build?')
+                        ]
+                    )
+                    if(userInput == 'true'){
                         sh """
                             echo "Deploying"
                         """
                     }
+                    else{
+                        sh """
+                        echo "Deployment Aborted"
+                        """
+                    }
                 }
-                else{
-                    sh """
-                    echo "Deployment Aborted"
-                    """
-                }
+                
             }
         }
     }
