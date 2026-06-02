@@ -8,8 +8,12 @@ Explanation: Just like GitHub Actions, a single Jenkins server handles both the 
 
 **Summary Cheat Sheet**<br>
 Think of it this way: AWS likes to break everything down into specialized, modular services, whereas Jenkins and GitHub Actions bundle things together:<br>
-What it does&emsp;AWS Service&emsp;GitHub Equivalent&emsp;Jenkins Equivalent <br>
-Stores Code&emsp;CodeCommit &emsp;GitHub Repositories&emsp;Git /Bitbucket<br>
-Orchestrates the Flow&emsp;CodePipeline&emsp;GitHub Actions (Workflows)&emsp;Jenkins Pipeline<br>
-Executes the Build/Tests&emsp;CodeBuild&emsp;GitHub Actions (Runners)&emsp;Jenkins Agents / Nodes<br>
-Deploys to Servers&emsp;CodeDeploy&emsp;GitHub Actions (Deploy steps)&emsp;Jenkins Deploy Plugins
+### CI/CD Tool Mapping Reference
+
+
+| What it does | AWS Service | GitHub Equivalent | Jenkins Equivalent |
+| :--- | :--- | :--- | :--- |
+| **Stores Code** | CodeCommit | GitHub Repositories | Git / Bitbucket |
+| **Orchestrates the Flow** | **CodePipeline** | GitHub Actions (Workflows) | Jenkins Pipeline |
+| **Executes the Build/Tests** | **CodeBuild** | GitHub Actions (Runners) | Jenkins Agents / Nodes |
+| **Deploys to Servers** | CodeDeploy | GitHub Actions (Deploy steps) | Jenkins Deploy Plugins |
